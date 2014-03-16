@@ -1,5 +1,4 @@
 Ractive = require 'Ractive'
-umd = require 'umd-wrapper'
 sysPath = require 'path'
 
 module.exports = class RactiveCompiler
@@ -13,13 +12,8 @@ module.exports = class RactiveCompiler
 
   compile: (data, path, callback) ->
     try
-      result = umd JSON.stringify Ractive.parse data
+      result = JSON.stringify Ractive.parse data
     catch err
       error = err
     finally
       callback error, result
-
-  include: [
-    (sysPath.join __dirname, '..', 'vendor',
-      'Ractive.runtime-0.3.6.js')
-  ]
