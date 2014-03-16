@@ -12,7 +12,8 @@ module.exports = class RactiveCompiler
 
   compile: (data, path, callback) ->
     try
-      result = JSON.stringify Ractive.parse data
+      template = JSON.stringify Ractive.parse data
+      result = "module.exports = #{template};"
     catch err
       error = err
     finally
