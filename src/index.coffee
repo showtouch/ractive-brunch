@@ -1,4 +1,4 @@
-Ractive = require 'Ractive'
+Ractive = require 'ractive'
 sysPath = require 'path'
 
 module.exports = class RactiveCompiler
